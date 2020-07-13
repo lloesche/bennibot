@@ -1,4 +1,4 @@
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/lloesche/bennibot)
+[<img src="https://img.shields.io/docker/cloud/build/lloesche/bennibot">](https://hub.docker.com/repository/docker/lloesche/bennibot)
 <p align="center"><img src="https://raw.githubusercontent.com/lloesche/bennibot/master/misc/bennibot_200.png" /><h1 align="center">Benni Bot</h1></p>
 
 A Discord Bot that shows Bennis current work shift.
