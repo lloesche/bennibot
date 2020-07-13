@@ -20,7 +20,7 @@ from bennibot.bot import BenniBot
 
 log_format = "%(asctime)s - %(levelname)s - %(threadName)s - %(message)s"
 logging.basicConfig(level=logging.WARN, format=log_format)
-logging.getLogger('bennibot').setLevel(logging.DEBUG)
+logging.getLogger("bennibot").setLevel(logging.DEBUG)
 log = logging.getLogger(__name__)
 
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -34,5 +34,5 @@ def main() -> None:
     bot.run(TOKEN)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
