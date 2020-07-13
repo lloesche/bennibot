@@ -13,7 +13,6 @@
 # limitations under the License.
 import logging
 import discord
-from discord.ext import commands
 from bennibot.shift import getshift
 
 
