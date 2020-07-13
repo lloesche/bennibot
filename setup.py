@@ -21,7 +21,6 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'PyNaCl',
         'discord.py[voice]',
     ],
     setup_requires=['pytest-runner'],
