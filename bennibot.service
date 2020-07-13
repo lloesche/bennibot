@@ -1,0 +1,20 @@
+[Unit]
+Description=bennibot docker container
+After=docker.service
+Requires=docker.service
+
+[Service]
+User=system
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker kill bennibot
+ExecStartPre=-/usr/bin/docker rm bennibot
+ExecStartPre=/usr/bin/docker pull lloesche/bennibot
+ExecStart=/usr/bin/docker run \
+        --name bennibot \
+        -e "DISCORD_TOKEN=" \
+        lloesche/bennibot
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
