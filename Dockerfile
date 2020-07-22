@@ -8,7 +8,7 @@ RUN tox && pip wheel -w /build .
 
 FROM python:3.8-alpine
 WORKDIR /
-RUN apk add --no-cache dumb-init
+RUN apk add --no-cache dumb-init tzdata
 COPY --from=build-env /build /build
 COPY startup /usr/local/bin/startup
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
