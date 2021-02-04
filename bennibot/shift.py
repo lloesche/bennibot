@@ -26,8 +26,9 @@ shift = [
 ]
 
 
-def getshift():
+def getshift(week_offset=0):
     _, week, _ = datetime.date.today().isocalendar()
+    week += week_offset
     week_index = week % len(shift)
     next_week_index = (week + 1) % len(shift)
     current_shift = shift[week_index]

@@ -24,13 +24,14 @@ logging.getLogger("bennibot").setLevel(logging.DEBUG)
 log = logging.getLogger(__name__)
 
 TOKEN = os.getenv("DISCORD_TOKEN")
+WEEK_OFFSET = int(os.getenv("WEEK_OFFSET", 0))
 if not TOKEN:
     log.fatal("DISCORD_TOKEN must be set")
     sys.exit(1)
 
 
 def main() -> None:
-    bot = BenniBot()
+    bot = BenniBot(week_offset=WEEK_OFFSET)
     bot.run(TOKEN)
 
 

@@ -20,6 +20,10 @@ log = logging.getLogger(__name__)
 
 
 class BenniBot(discord.Client):
+    def __init__(self, *args, week_offset=0, **kwargs):
+        self.week_offset = week_offset
+        super().__init__(*args, **kwargs)
+
     async def on_ready(self):
         log.info(f"{self.user.name} has connected to Discord!")
 
@@ -28,4 +32,4 @@ class BenniBot(discord.Client):
             return
 
         if message.content.startswith("!schicht"):
-            await message.channel.send(f"{message.author.mention} {getshift()}")
+            await message.channel.send(f"{message.author.mention} {getshift(self.week_offset)}")
