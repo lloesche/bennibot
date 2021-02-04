@@ -32,4 +32,6 @@ class BenniBot(discord.Client):
             return
 
         if message.content.startswith("!schicht"):
-            await message.channel.send(f"{message.author.mention} {getshift(self.week_offset)}")
+            await message.channel.send(
+                f"{message.author.mention} {getshift(self.week_offset)}"
+            )
