@@ -37,7 +37,10 @@ def getshift(week_offset=0):
     work_info = "er arbeitet momentan"
     if current_shift["stop"] < current_shift["start"]:
         # night shift that crosses midnight
-        if current_shift["start"] <= current_time or current_time < current_shift["stop"]:
+        if (
+            current_shift["start"] <= current_time
+            or current_time < current_shift["stop"]
+        ):
             pass
         else:
             work_info += " nicht"
