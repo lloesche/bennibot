@@ -35,10 +35,18 @@ def getshift(week_offset=0):
     next_shift = shift[next_week_index]
     current_time = datetime.datetime.now().time()
     work_info = "er arbeitet momentan"
-    if current_shift["start"] <= current_time < current_shift["stop"]:
-        pass
+    if current_shift["stop"] < current_shift["start"]:
+        # night shift that crosses midnight
+        if current_shift["start"] <= current_time or current_time < current_shift["stop"]:
+            pass
+        else:
+            work_info += " nicht"
     else:
-        work_info += " nicht"
+        # normal shift
+        if current_shift["start"] <= current_time < current_shift["stop"]:
+            pass
+        else:
+            work_info += " nicht"
     msg = (
         f"Benni hat diese Woche {current_shift['name']}- und nächste Woche {next_shift['name']}schicht. "
         f"Es ist gerade {datetime.datetime.now().strftime('%H:%M')} Uhr und {work_info}. "

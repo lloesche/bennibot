@@ -1,4 +1,4 @@
-FROM python:3.8-alpine AS build-env
+FROM python:3.11-alpine AS build-env
 RUN apk add --no-cache build-base findutils libffi-dev python3-dev
 RUN pip install --upgrade pip
 RUN pip install tox flake8
@@ -6,7 +6,7 @@ COPY ./ /usr/src/bennibot
 WORKDIR /usr/src/bennibot
 RUN tox && pip wheel -w /build .
 
-FROM python:3.8-alpine
+FROM python:3.11-alpine
 WORKDIR /
 RUN apk add --no-cache dumb-init tzdata
 COPY --from=build-env /build /build
