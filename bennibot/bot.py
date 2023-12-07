@@ -22,9 +22,9 @@ log = logging.getLogger(__name__)
 class BenniBot(discord.Client):
     def __init__(self, *args, week_offset=0, **kwargs):
         self.week_offset = week_offset
-        super().__init__(*args, **kwargs)
-        self.intents = discord.Intents.default()
-        self.intents.message_content = True
+        intents = discord.Intents.default()
+        intents.message_content = True
+        super().__init__(*args, intents=intents, **kwargs)
 
     async def on_ready(self):
         log.info(f"{self.user.name} has connected to Discord!")
