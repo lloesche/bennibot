@@ -13,6 +13,7 @@
 # limitations under the License.
 import logging
 import discord
+from datetime import datetime
 from bennibot.shift import getshift
 
 
@@ -20,7 +21,11 @@ log = logging.getLogger(__name__)
 
 
 class BenniBot(discord.Client):
-    def __init__(self, *args, week_offset=0, **kwargs):
+    def __init__(self, *args, week_offset=None, **kwargs):
+        if week_offset is None:
+            week_offset = datetime.now().year % 3
+        else:
+            week_offset = int(week_offset)
         self.week_offset = week_offset
         intents = discord.Intents.default()
         intents.message_content = True
